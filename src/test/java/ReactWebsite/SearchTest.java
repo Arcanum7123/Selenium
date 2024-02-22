@@ -14,7 +14,7 @@ public class SearchTest extends TestSetUp{
 
     @Parameters({"searchType", "expected", "country"})
     @Test(groups = {"countryStuff"})
-    public void countrySearch(@Optional("Capital") String searchType, String expected, String country) {
+    public void countrySearch(@Optional("Capital") String searchType, @Optional("Helsinki") String expected, @Optional("Finland") String country) {
         //Get website
         String url = "http://localhost:3000/";
         driver.get(url);
@@ -43,7 +43,7 @@ public class SearchTest extends TestSetUp{
 
     @Parameters({"sakilaSearchType", "sakilaExpected", "input"})
     @Test(groups = {"sakilaStuff"})
-    public void filmSearch(String sakilaSearchType, String sakilaExpected, String input) {
+    public void filmSearch(@Optional("FilmsIn") String sakilaSearchType, @Optional("ATTACKS HATE") String sakilaExpected, @Optional("Sci-Fi") String input) {
         //Get website
         String url = "http://localhost:3000/";
         driver.get(url);
