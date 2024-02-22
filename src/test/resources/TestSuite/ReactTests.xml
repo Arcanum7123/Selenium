@@ -1,0 +1,176 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="ReactTests" verbose="1">
+    <!--Country wiki test-->
+    <!--Correct input tests-->
+    <test name="SuccessfulCallCodeTest">
+        <parameter name="searchType" value="IDD" />
+        <parameter name="expected" value="+3" />
+        <parameter name="country" value="Finland" />
+        <groups>
+            <run>
+                <include name="countryStuff" />
+            </run>
+        </groups>
+        <classes>
+            <class name="ReactWebsite.SearchTest" />
+        </classes>
+    </test>
+
+    <test name="SuccessfulCapitalTest">
+        <parameter name="searchType" value="Capital" />
+        <parameter name="expected" value="Helsinki" />
+        <parameter name="country" value="Finland" />
+        <groups>
+            <run>
+                <include name="countryStuff" />
+            </run>
+        </groups>
+        <classes>
+            <class name="ReactWebsite.SearchTest" />
+        </classes>
+    </test>
+    
+    <test name="SuccessfulCurrencyTest">
+        <parameter name="searchType" value="Currencies" />
+        <parameter name="expected" value="Euro" />
+        <parameter name="country" value="Finland" />
+        <groups>
+            <run>
+                <include name="countryStuff" />
+            </run>
+        </groups>
+        <classes>
+            <class name="ReactWebsite.SearchTest" />
+        </classes>
+    </test>
+    
+    <test name="SuccessfulLanguageTest">
+        <parameter name="searchType" value="Languages" />
+        <parameter name="expected" value="Finnish" />
+        <parameter name="country" value="Finland" />
+        <groups>
+            <run>
+                <include name="countryStuff" />
+            </run>
+        </groups>
+        <classes>
+            <class name="ReactWebsite.SearchTest" />
+        </classes>
+    </test>
+
+    <!--Incorrect input tests-->
+    <test name="WrongInputCapitalTest">
+        <parameter name="searchType" value="Capital" />
+        <parameter name="expected" value="Please select what you want to know and enter a country." />
+        <parameter name="country" value="xyz" />
+        <groups>
+            <run>
+                <include name="countryStuff" />
+            </run>
+        </groups>
+        <classes>
+            <class name="ReactWebsite.SearchTest" />
+        </classes>
+    </test>
+    
+    <test name="WrongInputCurrencyTest">
+        <parameter name="searchType" value="Currencies" />
+        <parameter name="expected" value="Please select what you want to know and enter a country." />
+        <parameter name="country" value="xyz" />
+        <groups>
+            <run>
+                <include name="countryStuff" />
+            </run>
+        </groups>
+        <classes>
+            <class name="ReactWebsite.SearchTest" />
+        </classes>
+    </test>
+
+    <test name="WrongInputLanguageTest">
+        <parameter name="searchType" value="Languages" />
+        <parameter name="expected" value="Please select what you want to know and enter a country." />
+        <parameter name="country" value="xyz" />
+        <groups>
+            <run>
+                <include name="countryStuff" />
+            </run>
+        </groups>
+        <classes>
+            <class name="ReactWebsite.SearchTest" />
+        </classes>
+    </test>
+
+    <test name="WrongInputCallCodeTest">
+        <parameter name="searchType" value="IDD" />
+        <parameter name="expected" value="Please select what you want to know and enter a country." />
+        <parameter name="country" value="xyz" />
+        <groups>
+            <run>
+                <include name="countryStuff" />
+            </run>
+        </groups>
+        <classes>
+            <class name="ReactWebsite.SearchTest" />
+        </classes>
+    </test>
+
+    <!--Sakila tests-->
+    <!--Correct input tests-->
+    <test name="GetByGenreTest">
+        <parameter name="sakilaSearchType" value="FilmsIn" />
+        <parameter name="sakilaExpected" value="ATTACKS HATE" />
+        <parameter name="input" value="Sci-Fi" />
+        <groups>
+            <run>
+                <include name="sakilaStuff" />
+            </run>
+        </groups>
+        <classes>
+            <class name="ReactWebsite.SearchTest" />
+        </classes>
+    </test>
+    
+    <test name="UpdateFilmRatingTest">
+        <parameter name="sakilaSearchType" value="UpdateRating" />
+        <parameter name="sakilaExpected" value="ATTACKS HATE" />
+        <parameter name="input" value="ATTACKS HATE, PG" />
+        <groups>
+            <run>
+                <include name="sakilaStuff" />
+            </run>
+        </groups>
+        <classes>
+            <class name="ReactWebsite.SearchTest" />
+        </classes>
+    </test>
+    
+    <test name="AddGenreToFilmTest">
+        <parameter name="sakilaSearchType" value="AddCategory" />
+        <parameter name="sakilaExpected" value="ATTACKS HATE" />
+        <parameter name="input" value="ATTACKS HATE, comedy" />
+        <groups>
+            <run>
+                <include name="sakilaStuff" />
+            </run>
+        </groups>
+        <classes>
+            <class name="ReactWebsite.SearchTest" />
+        </classes>
+    </test>
+    
+    <test name="RemoveGenreTest">
+        <parameter name="sakilaSearchType" value="RemoveCategory" />
+        <parameter name="sakilaExpected" value="ATTACKS HATE" />
+        <parameter name="input" value="ATTACKS HATE, comedy" />
+        <groups>
+            <run>
+                <include name="sakilaStuff" />
+            </run>
+        </groups>
+        <classes>
+            <class name="ReactWebsite.SearchTest" />
+        </classes>
+    </test>
+</suite>

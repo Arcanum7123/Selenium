@@ -1,0 +1,147 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="UltimateqaTests" verbose="1">
+    <!--Positive tests-->
+    <!--Check twitter link goes to correct page-->
+    <test name="FirstTwitterLinkTest">
+        <parameter name="expected" value="https://twitter.com/Nikolay_A00" />
+        <parameter name="xpath" value="/html//div[@id='main-content']/article/div[@class='entry-content']//div[@class='et_pb_row et_pb_row_4']/div[1]/ul[1]//a[@title='Follow on Twitter']" />
+        <groups>
+            <run>
+                <include name="links" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.ultimateqa.LinkTest" />
+        </classes>
+    </test>
+    
+    <!--Check facebook link goes to correct page-->
+    <test name="FirstFacebookLinkTest">
+        <parameter name="expected" value="https://www.facebook.com/Ultimateqa1/" />
+        <parameter name="xpath" value="/html//div[@id='main-content']/article/div[@class='entry-content']//div[@class='et_pb_row et_pb_row_4']/div[1]/ul[2]//a[@title='Follow on Facebook']" />
+        <groups>
+            <run>
+                <include name="links" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.ultimateqa.LinkTest" />
+        </classes>
+    </test>
+
+    <!--Check form with correct input works-->
+    <test name="MessageFormTest">
+        <parameter name="name" value="Bob" />
+        <parameter name="email" value="bob@domain.com" />
+        <parameter name="message" value="Hello" />
+        <parameter name="doCaptcha" value="true" />
+        <parameter name="expected" value="Thanks for contacting us" />
+        <groups>
+            <run>
+                <include name="forms" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.ultimateqa.LinkTest" />
+        </classes>
+    </test>
+    
+    <test name="DropdownMenuTest">
+        <parameter name="expected" value="Free Courses" />
+        <groups>
+            <run>
+                <include name="navigation" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.ultimateqa.LinkTest" />
+        </classes>
+    </test>
+    
+    <!--Negative tests-->
+    <!--Check form with missing name-->
+    <test name="MessageFormNoNameTest">
+        <parameter name="name" value="" />
+        <parameter name="email" value="bob@domain.com" />
+        <parameter name="message" value="Hello" />
+        <parameter name="doCaptcha" value="true" />
+        <parameter name="expected" value="Name" />
+        <groups>
+            <run>
+                <include name="forms" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.ultimateqa.LinkTest" />
+        </classes>
+    </test>
+
+    <!--Check form with missing email-->
+    <test name="MessageFormNoEmailTest">
+        <parameter name="name" value="Bob" />
+        <parameter name="email" value="" />
+        <parameter name="message" value="Hello" />
+        <parameter name="doCaptcha" value="true" />
+        <parameter name="expected" value="Email Address" />
+        <groups>
+            <run>
+                <include name="forms" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.ultimateqa.LinkTest" />
+        </classes>
+    </test>
+
+    <!--Check form with invalid email syntax-->
+    <test name="MessageFormWrongEmailTest">
+        <parameter name="name" value="Bob" />
+        <parameter name="email" value="bob" />
+        <parameter name="message" value="Hello" />
+        <parameter name="doCaptcha" value="true" />
+        <parameter name="expected" value="Invalid email" />
+        <groups>
+            <run>
+                <include name="forms" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.ultimateqa.LinkTest" />
+        </classes>
+    </test>
+
+    <!--Check form with no message-->
+    <test name="MessageFormNoMessageTest">
+        <parameter name="name" value="Bob" />
+        <parameter name="email" value="bob@domain.com" />
+        <parameter name="message" value="" />
+        <parameter name="doCaptcha" value="true" />
+        <parameter name="expected" value="Message" />
+        <groups>
+            <run>
+                <include name="forms" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.ultimateqa.LinkTest" />
+        </classes>
+    </test>
+
+    <!--Check form with no captcha-->
+    <test name="MessageFormNoCaptchaTest">
+        <parameter name="name" value="Bob" />
+        <parameter name="email" value="bob@domain.com" />
+        <parameter name="message" value="Hello" />
+        <parameter name="doCaptcha" value="false" />
+        <parameter name="expected" value="Captcha" />
+        <groups>
+            <run>
+                <include name="forms" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.ultimateqa.LinkTest" />
+        </classes>
+    </test>
+</suite>

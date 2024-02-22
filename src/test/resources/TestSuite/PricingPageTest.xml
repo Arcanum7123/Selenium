@@ -1,0 +1,31 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="PricingPageTest" verbose="1">
+    <!--Positive tests-->
+    <!--Free trial button-->
+    <test name="FreeTrialButtonTest">
+        <parameter name="expected" value="https://ultimateqa.com/automation/fake-pricing-page/#top" />
+        <parameter name="xpath" value="/html//div[@id='main-content']/article/div[@class='entry-content']/div[@class='et-l et-l--post']/div[@class='et_builder_inner_content et_pb_gutters3']/div[1]/div[2]/div[1]/div/div[@class='et_pb_pricing_table_wrap']/div/div[@class='et_pb_button_wrapper']/a[@href='#top']" />
+        <classes>
+            <class name="com.ultimateqa.PricingPageTests" />
+        </classes>
+    </test>
+
+    <!--Basic button-->
+    <test name="BasicButtonTest">
+        <parameter name="expected" value="https://ultimateqa.com/automation/fake-pricing-page/#top" />
+        <parameter name="xpath" value="/html//div[@id='main-content']/article/div[@class='entry-content']/div[@class='et-l et-l--post']/div[@class='et_builder_inner_content et_pb_gutters3']/div[1]/div[2]/div[2]/div/div[@class='et_pb_pricing_table_wrap']/div/div[@class='et_pb_button_wrapper']/a[@href='#top']" />
+        <classes>
+            <class name="com.ultimateqa.PricingPageTests" />
+        </classes>
+    </test>
+
+    <!--Enterprise button-->
+    <test name="EnterpriseButtonTest">
+        <parameter name="expected" value="https://ultimateqa.com/automation/fake-pricing-page/#top" />
+        <parameter name="xpath" value="/html//div[@id='main-content']/article/div[@class='entry-content']/div[@class='et-l et-l--post']/div[@class='et_builder_inner_content et_pb_gutters3']/div[1]/div[2]/div[3]/div/div[@class='et_pb_pricing_table_wrap']/div/div[@class='et_pb_button_wrapper']/a[@href='#top']" />
+        <classes>
+            <class name="com.ultimateqa.PricingPageTests" />
+        </classes>
+    </test>
+</suite>
