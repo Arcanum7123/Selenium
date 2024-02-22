@@ -3,6 +3,8 @@ package ReactWebsite;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 //import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -29,12 +31,11 @@ public class SearchTest extends TestSetUp{
         WebElement searchButton = driver.findElement(By.id("SearchButton"));
         searchButton.click();
 
-        sleep(1000);
-        //Why wait not working?
-        //new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
 
         //Verification
         WebElement output = driver.findElement(By.id("Output"));
+        wait.until(ExpectedConditions.textToBePresentInElement(output, expected));
         String actual = output.getText();
         Assert.assertTrue(actual.contains(expected), "Output does not contain expected result. \nExpected to contain: " + expected + "\nActual output: "
             + actual);
@@ -59,10 +60,11 @@ public class SearchTest extends TestSetUp{
         WebElement goButton = driver.findElement(By.id("SakilaSearchButton"));
         goButton.click();
 
-        sleep(1000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
 
         //Verification
         WebElement output = driver.findElement(By.id("SakilaOutput"));
+        wait.until(ExpectedConditions.textToBePresentInElement(output, sakilaExpected));
         String actual = output.getText();
         Assert.assertTrue(actual.contains(sakilaExpected), "Output does not contain expected result. \nExpected to contain: " + sakilaExpected +
                 "\nActual output: " + actual);

@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="ReactTests" verbose="1">
+    <test name="DelayedElementTest">
+        <parameter name="expected" value="Hello World!" />
+        <classes>
+            <class name="com.herokuapp.DelayedElementTest" />
+        </classes>
+    </test>
+</suite>
